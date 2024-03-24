@@ -7,6 +7,25 @@ The project aims to clean and standardize data within the NashvilleHousing datab
 ## Data Sources: 
 The data source is from [Alex The Analyst](https://mavenanalytics.io/data-playground)
 
+## SQL Functions:
+Here's a list of SQL functions used in the projects:
+- ALTER TABLE
+- UPDATE
+- STR_TO_DATE
+- IF
+- CASE
+- SUBSTRING_INDEX
+- JOINs
+- COMMIT
+- CREATE TEMPORARY TABLE
+- CTE
+- Window Fuction
+- ROW_NUMBER() OVER (PARTITION BY ... ORDER BY ...)
+
+These functions are used for various data cleaning tasks such as standardizing date formats, populating missing values, splitting address data into individual columns, replacing values, identifying and removing duplicates, and deleting unused columns.
+
+
+
 1. ### Standardize Date Format:
 Converts the SaleDate column to a standardized date format for consistency and ease of analysis.
 
