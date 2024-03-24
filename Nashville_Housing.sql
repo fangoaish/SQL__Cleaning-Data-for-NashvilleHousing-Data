@@ -128,6 +128,8 @@ ORDER BY 2 DESC;
 -- identify the duplicate rows
 -- use ROW_NUMBER() OVER (PARTITION BY )
 -- duplicate ones are those which row_num > 1
+
+-- Method no1: Check Duplicates with nested queries
 CREATE TEMPORARY TABLE Nash_Table_no_duplicates
 SELECT *
 From(
@@ -141,6 +143,24 @@ FROM NashvilleHousing.`nashville _housing`
 ) AS Nash_Table
 Where row_num > 1
 ORDER BY UniqueID;
+
+
+-- Method no2: Check Duplicates with CTE
+WITH RownumCTE AS
+(
+SELECT *,
+	ROW_NUMBER() OVER (PARTITION BY ParcelID, 
+									PropertyAddress, 
+                                    SalePrice, 
+                                    SaleDate, 
+                                    LegalReference ORDER BY UniqueID) AS row_num
+FROM NashvilleHousing.`nashville _housing`
+ORDER BY ParcelID
+)
+SELECT * FROM RownumCTE
+WHERE row_num > 1
+ORDER BY UniqueID;
+
 
 -- Drop Duplicates
 DELETE FROM NashvilleHousing.`nashville _housing`
