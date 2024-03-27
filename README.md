@@ -1,4 +1,4 @@
-# Cleaning Data for NashvilleHousing Data
+# Data Wrangling for NashvilleHousing Data
 
 ## Project Overview: 
 
